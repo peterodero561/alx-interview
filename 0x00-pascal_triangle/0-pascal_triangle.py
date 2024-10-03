@@ -1,4 +1,9 @@
+#!/usr/bin/python3
+
 def pascal_triangle(n):
+    '''
+    function to return a list of a given number of rows of the pascal tringle
+    '''
     if n <= 0:
         return []
     
