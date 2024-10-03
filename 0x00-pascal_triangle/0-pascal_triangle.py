@@ -1,25 +1,19 @@
-#!/usr/bin/python3
-
 def pascal_triangle(n):
     if n <= 0:
         return []
+    
+    # Start with the first row
+    row = [1]
+    wholeList = [row]  # Optionally store the rows if needed, remove if you only care about the last row.
 
-    wholeList = []
-
-    for row in range(0, n):
-        if row == 0:
-            newList = [1]
-            wholeList.append(newList)
-        elif row == 1:
-            newlist = [1, 1]
-            wholeList.append(newlist)
-        elif row >= 2:
-            x = len(wholeList[(row - 1)])
-            newlist = [1]
-            for i in range(0, x - 1):
-                value = wholeList[(row - 1)][i] + wholeList[(row - 1)][i +1]
-                newlist.append(value)
-            newlist.append(1)
-            wholeList.append(newlist)
+    for _ in range(1, n):
+        # Create the next row from the previous one
+        new_row = [1]  # Every row starts with a 1
+        for i in range(1, len(row)):
+            # Add elements by summing the two elements above it
+            new_row.append(row[i - 1] + row[i])
+        new_row.append(1)  # Every row ends with a 1
+        row = new_row
+        wholeList.append(row)  # Optional, remove to optimize space further
 
     return wholeList
