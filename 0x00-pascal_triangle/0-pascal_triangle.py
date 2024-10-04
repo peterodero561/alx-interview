@@ -1,15 +1,17 @@
 #!/usr/bin/python3
 '''function to return a list of a given number of rows of the pascal tringle'''
+
+
 def pascal_triangle(n):
     '''
     function to return a list of a given number of rows of the pascal tringle
     '''
     if n <= 0:
         return []
-    
+
     # Start with the first row
     row = [1]
-    wholeList = [row]  # Optionally store the rows if needed, remove if you only care about the last row.
+    wholeList = [row]
 
     for _ in range(1, n):
         # Create the next row from the previous one
