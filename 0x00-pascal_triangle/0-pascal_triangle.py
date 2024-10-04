@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+'''function to return a list of a given number of rows of the pascal tringle'''
 def pascal_triangle(n):
     '''
     function to return a list of a given number of rows of the pascal tringle
