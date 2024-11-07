@@ -11,9 +11,8 @@ def solve_n_queens(n):
             if board[i] == col or \
                     board[i] - i == col - row or \
                     board[i] + i == col + row:
-                        return False
+                return False
         return True
-
 
     def place_queens(board, row):
         '''check if its possible to place queens in that row'''
@@ -25,7 +24,7 @@ def solve_n_queens(n):
 
         for col in range(n):
             if is_safe(board, row, col):
-                board[row] = col # place queen at (row, col)
+                board[row] = col  # place queen at (row, col)
                 place_queens(board, row + 1)
                 board[row] = -1
 
