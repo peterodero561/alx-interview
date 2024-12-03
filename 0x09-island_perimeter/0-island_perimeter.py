@@ -3,23 +3,24 @@
 
 
 def island_perimeter(grid):
-    '''returns perimeter of the island in the grid'''
-    # handle empty grid
-    if not grid or not grid[0]:
-        return 0
+    """
+    Calculate the perimeter of the island described in the grid.
+    :param grid: List[List[int]], a 2D grid
+    :return: int, the perimeter of the island
+    """
+    rows = len(grid)
+    cols = len(grid[0])
+    perimeter = 0
 
-    count = 0  # will serve to count the distance of island perimeter
-    width = len(grid)
-    length = len(grid[0])
-    for i in range(width):
-        for j in range(length):
-            if (grid[i][j] == 1):
-                if (grid[i][j-1] == 0 or j == 0):
-                    count += 1
-                if (grid[i-1][j] == 0 or i == 0):
-                    count += 1
-                if (grid[i][j+1] == 0 or j == length-1):
-                    count += 1
-                if (grid[i+1][j] == 0 or i == width-1):
-                    count += 1
-    return count
+    for row in range(rows):
+        for col in range(cols):
+            if grid[row][col] == 1:  # Land cell
+                # Assume each land cell initially contributes 4 sides
+                perimeter += 4
+                # Check above
+                if row > 0 and grid[row - 1][col] == 1:
+                    perimeter -= 2  # Remove 2 sides for the shared edge
+                # Check left
+                if col > 0 and grid[row][col - 1] == 1:
+                    perimeter -= 2  # Remove 2 sides for the shared edge
+    return perimeter
