@@ -1,4 +1,4 @@
-#!/usr/binpython3
+#!/usr/bin/python3
 '''Prime game code: determines if a given number
 is prime and plays with the number'''
 
