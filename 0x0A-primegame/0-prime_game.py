@@ -1,6 +1,7 @@
 #!/usr/binpython3
 '''Prime game code'''
 
+
 def is_prime(num):
     '''Determines if the given num parameter is a prime number'''
     if num == 1:
